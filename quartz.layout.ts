@@ -66,3 +66,12 @@ export const defaultListPageLayout: PageLayout = {
   ],
   right: [],
 }
+
+export default function CustomExplorer() {
+  return Component.Explorer({
+    filterFn: (node) => {
+      const omit = new Set(["file", "Tags", "템플릿"])
+      return !omit.has(node.displayName.toLowerCase())
+    },
+  })
+}
